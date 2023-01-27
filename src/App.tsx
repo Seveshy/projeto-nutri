@@ -1,4 +1,6 @@
 import { ThemeProvider } from 'styled-components'
+import { Header } from './components/Header'
+import { Nutrition } from './pages/Nutrition'
 import { defaultTheme } from './src/default'
 import { GlobalStyle } from './src/global'
 
@@ -7,7 +9,8 @@ function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
-      <h1>TESTE</h1>
+      <Header />
+      <Nutrition />
     </ThemeProvider>
   )
 }
