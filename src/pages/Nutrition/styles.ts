@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   display: flex;
-  margin-top: 2rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -10,8 +9,8 @@ export const Container = styled.main`
 
 export const ContainerButton = styled.div`
   display: flex;
+  margin-top: 3rem;
   width: 100%;
-  max-width: 1220px;
   justify-content: space-between;
 `;
 
@@ -20,7 +19,7 @@ export const Wrapper = styled.div`
 
   width: 100%;
   max-width: 1220px;
-  margin: 5rem auto 0;
+  margin-top: -6rem;
   padding: 0 1.5rem;
   border-radius: 6px;
 
@@ -32,6 +31,7 @@ export const NutritionTable = styled.table`
   border-collapse: separate;
   border-spacing: 0 0.5rem;
   margin: auto;
+  padding: 52px 0;
 
   td {
     color: ${(props) => props.theme["white"]};

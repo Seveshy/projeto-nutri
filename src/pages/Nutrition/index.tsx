@@ -21,25 +21,43 @@ export function Nutrition() {
 
   return (
     <Container>
-      <ContainerButton>
-        <Autocomplete
-          onChange={handleDiet}
-          selectOnBlur
-          placeholder="Buscar dieta"
-          requireMatch
-          getOptions={getOptions}
-          query={text}
-        />
-        <ButtonDiet />
-      </ContainerButton>
       <Wrapper>
+        <ContainerButton>
+          <Autocomplete
+            onChange={handleDiet}
+            selectOnBlur
+            placeholder="Buscar dieta"
+            requireMatch
+            getOptions={getOptions}
+            query={text}
+          />
+          <ButtonDiet />
+        </ContainerButton>
         <NutritionTable>
           <tbody>
             <tr>
-              <td>Manhã</td>
-              <td width="50%">Banana</td>
+              <td>Café da manhã</td>
+              <td>Banana</td>
               <td> 500 gramas </td>
               <td>10:00 horas</td>
+              <td>
+                <Trash size={26} color="#fff" />
+              </td>
+            </tr>
+            <tr>
+              <td>Almoço</td>
+              <td>Omelete</td>
+              <td> 100 gramas de arroz</td>
+              <td>13:00 horas</td>
+              <td>
+                <Trash size={26} color="#fff" />
+              </td>
+            </tr>
+            <tr>
+              <td>Lanche da tarde</td>
+              <td>Pão com aveia</td>
+              <td> 500 gramas </td>
+              <td>15:00 horas</td>
               <td>
                 <Trash size={26} color="#fff" />
               </td>
