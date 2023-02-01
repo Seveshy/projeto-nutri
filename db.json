@@ -1,0 +1,28 @@
+{
+  "diet": [
+    {
+      "id": 1,
+      "period": "Café da manhã",
+      "food": "Pão com oco",
+      "amount": "200",
+      "hour": "09:00",
+      "createdAt": "2023-01-14T08:45:42.845Z"
+    },
+    {
+      "id": 2,
+      "period": "Almoço",
+      "food": "Omelete",
+      "amount": "200",
+      "hour": "12:30",
+      "createdAt": "2023-01-14T12:44:42.845Z"
+    },
+    {
+      "id": 3,
+      "period": "Jantar",
+      "food": "Peixe",
+      "amount": "500",
+      "hour": "21:30",
+      "createdAt": "2023-01-14T14:44:42.845Z"
+    }
+  ]
+}

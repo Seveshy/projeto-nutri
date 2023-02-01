@@ -7,7 +7,7 @@ export function NutritionModal() {
     <Dialog.Portal>
       <Overlay />
       <Content>
-        <Title>Nova transação</Title>
+        <Title>Cadastrar alimento</Title>
         <CloseButton>
           <X size={24} />
         </CloseButton>

@@ -33,6 +33,13 @@ export const NutritionTable = styled.table`
   margin: auto;
   padding: 52px 0;
 
+  svg {
+    cursor: pointer;
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+
   td {
     color: ${(props) => props.theme["white"]};
     padding: 1.25rem;

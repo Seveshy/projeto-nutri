@@ -9,7 +9,6 @@ export const Overlay = styled(Dialog.Overlay)`
   background: rgba(0, 0, 0, 0.75);
 `;
 
-
 export const Title = styled(Dialog.Title)`
   color: ${(props) => props.theme["gray-800"]};
 `;
@@ -33,7 +32,6 @@ export const Content = styled(Dialog.Content)`
       border: 0;
       background: ${(props) => props.theme["gray-100"]};
       padding: 1.2rem;
-      
     }
     button[type="submit"] {
       height: 58px;
@@ -44,20 +42,21 @@ export const Content = styled(Dialog.Content)`
       padding: 0 1.25rem;
       border-radius: 6px;
       margin-top: 1.5rem;
+
       &:hover {
-        background: ${(props) => props.theme["gray-800"]};
-        transition: background-color 0.2s;
+        filter: brightness(0.9);
+        transition: filter 0.2s;
       }
     }
   }
 `;
 
 export const CloseButton = styled(Dialog.Close)`
-    position: absolute;
-    background: transparent;
-    border: 0;
-    top: 1.5rem;
-    right: 1.5rem;
-    line-height: 0;
-    color: ${(props) => props.theme["gray-500"]};
-`
+  position: absolute;
+  background: transparent;
+  border: 0;
+  top: 1.5rem;
+  right: 1.5rem;
+  line-height: 0;
+  color: ${(props) => props.theme["gray-500"]};
+`;
