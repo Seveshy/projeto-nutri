@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { api } from "../services/api";
 
-export interface NutritionType {
+interface NutritionType {
   id: number;
   period: string;
   food: string;
@@ -9,9 +9,16 @@ export interface NutritionType {
   hour: string;
 }
 
+interface CreateDietType {
+  period: string;
+  food: string;
+  ammount: number;
+}
+
 interface NutritionContextType {
   nutritions: NutritionType[];
-  deleteDiet: (diet: number) => void
+  deleteDiet: (diet: number) => void;
+  createDiet: (data: CreateDietType) => Promise<void>;
 }
 
 export const NutritionContext = createContext({} as NutritionContextType);
@@ -24,19 +31,29 @@ export function NutritionProvider({ children }: NutritionProviderProps) {
   const [nutritions, setNutritions] = useState<NutritionType[]>([]);
 
   useEffect(() => {
-    api.get(("diet")).then(response => setNutritions(response.data))
+    api.get("diet").then((response) => setNutritions(response.data));
   }, []);
 
   function deleteDiet(diet: number) {
-    setNutritions([...nutritions.filter((_, index) => index !== diet)])
+    setNutritions([...nutritions.filter((_, index) => index !== diet)]);
     console.log(diet);
   }
 
+  async function createDiet(data: CreateDietType) {
+    const { period, food, ammount } = data;
+
+    const response = await api.post("diet", {
+      period,
+      food,
+      ammount,
+      createdAt: new Date(),
+    });
+
+    setNutritions((state) => [response.data, ...state]);
+  }
 
   return (
-    <NutritionContext.Provider
-      value={{ nutritions, deleteDiet }}
-    >
+    <NutritionContext.Provider value={{ nutritions, deleteDiet, createDiet }}>
       {children}
     </NutritionContext.Provider>
   );
