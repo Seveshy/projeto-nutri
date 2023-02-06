@@ -8,6 +8,7 @@ export const defaultTheme = {
     'gray-600': '#006fe2',
     'gray-700': '#119fff',
     'gray-800': '#001c41',
+    'gray-900': 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(17,80,156,1) 35%, rgba(0,212,255,1) 100%);',
 
     'green-100': '#00B37E',
     'green-200': '#00875F',

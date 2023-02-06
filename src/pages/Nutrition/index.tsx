@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { Trash } from "phosphor-react";
 import { NutritionContext } from "../../context/NutritionContext";
 
-const options = ["Afghanistan", "Albania", "Algeria", "Andorra"];
+const options = ["Café da manhã", "Almoço", "Janta"];
 
 const getOptions = (q: string) => {
   let query = new RegExp(q);
@@ -19,6 +19,7 @@ export function Nutrition() {
 
   function handleDiet(event: any) {
     setText(event.target.value);
+    console.log(text)
   }
 
   function handleDeleteDiet(diet: number) {
@@ -48,7 +49,7 @@ export function Nutrition() {
                 <tr key={diet.id}>
                   <td>{diet.period}</td>
                   <td>{diet.food}</td>
-                  <td> {diet.ammount} {" "} gramas</td>
+                  <td> {diet.ammount} gramas</td>
                   <td>{diet.hour}</td>
                   <td>
                     <Trash

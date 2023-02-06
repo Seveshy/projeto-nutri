@@ -5,7 +5,7 @@ import { CloseButton, Content, Overlay, Title } from "./styles";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NutritionContext } from "../../context/NutritionContext";
 
 const newDietFormSchema = z.object({
@@ -18,20 +18,21 @@ const newDietFormSchema = z.object({
 type NewDietFormInput = z.infer<typeof newDietFormSchema>;
 
 export function NutritionModal() {
-  const { createDiet } = useContext(NutritionContext)
+  const { createDiet } = useContext(NutritionContext);
+  const [open, setOpen] = useState(false);
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { isSubmitting },
   } = useForm<NewDietFormInput>({
     resolver: zodResolver(newDietFormSchema),
   });
 
   function handleCreateNewDiet(data: NewDietFormInput) {
-    createDiet(data)
+    createDiet(data, reset);
   }
-
 
   return (
     <Dialog.Portal>

@@ -13,13 +13,13 @@ interface CreateDietType {
   period: string;
   food: string;
   ammount: number;
-  hour: string; 
+  hour: string;
 }
 
 interface NutritionContextType {
   nutritions: NutritionType[];
   deleteDiet: (diet: number) => void;
-  createDiet: (data: CreateDietType) => Promise<void>;
+  createDiet: (data: CreateDietType, reset: any) => Promise<void>;
 }
 
 export const NutritionContext = createContext({} as NutritionContextType);
@@ -41,7 +41,7 @@ export function NutritionProvider({ children }: NutritionProviderProps) {
     console.log(diet);
   }
 
-  async function createDiet(data: CreateDietType) {
+  async function createDiet(data: CreateDietType, reset: any) {
     const { period, food, ammount, hour } = data;
 
     const response = await api.post("diet", {
@@ -53,6 +53,8 @@ export function NutritionProvider({ children }: NutritionProviderProps) {
     });
 
     setNutritions((state) => [response.data, ...state]);
+
+    reset();
   }
 
   return (

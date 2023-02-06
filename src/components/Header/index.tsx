@@ -1,9 +1,10 @@
 import { ContainerHeader } from "./styles";
+import logoDiet from "../../assets/diet.png";
 
 export function Header() {
   return (
     <ContainerHeader>
-      <h1>Nutri</h1>
+      <img src={logoDiet} alt="Logo" />
     </ContainerHeader>
   );
 }
