@@ -48,7 +48,7 @@ export function Nutrition() {
                 <tr key={diet.id}>
                   <td>{diet.period}</td>
                   <td>{diet.food}</td>
-                  <td> {diet.ammount} </td>
+                  <td> {diet.ammount} {" "} gramas</td>
                   <td>{diet.hour}</td>
                   <td>
                     <Trash

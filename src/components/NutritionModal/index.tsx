@@ -5,9 +5,11 @@ import { CloseButton, Content, Overlay, Title } from "./styles";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { NutritionContext } from "../../context/NutritionContext";
 
 const newDietFormSchema = z.object({
-  type: z.string(),
+  period: z.string(),
   food: z.string(),
   ammount: z.number(),
   hour: z.string(),
@@ -16,6 +18,8 @@ const newDietFormSchema = z.object({
 type NewDietFormInput = z.infer<typeof newDietFormSchema>;
 
 export function NutritionModal() {
+  const { createDiet } = useContext(NutritionContext)
+
   const {
     register,
     handleSubmit,
@@ -25,8 +29,9 @@ export function NutritionModal() {
   });
 
   function handleCreateNewDiet(data: NewDietFormInput) {
-    console.log(data);
+    createDiet(data)
   }
+
 
   return (
     <Dialog.Portal>
@@ -42,7 +47,7 @@ export function NutritionModal() {
             type="text"
             placeholder="Tipo de dieta"
             required
-            {...register("type")}
+            {...register("period")}
           />
           <input
             type="text"

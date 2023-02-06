@@ -13,6 +13,7 @@ interface CreateDietType {
   period: string;
   food: string;
   ammount: number;
+  hour: string; 
 }
 
 interface NutritionContextType {
@@ -36,16 +37,18 @@ export function NutritionProvider({ children }: NutritionProviderProps) {
 
   function deleteDiet(diet: number) {
     setNutritions([...nutritions.filter((_, index) => index !== diet)]);
+    api.delete(`diet/${diet}`);
     console.log(diet);
   }
 
   async function createDiet(data: CreateDietType) {
-    const { period, food, ammount } = data;
+    const { period, food, ammount, hour } = data;
 
     const response = await api.post("diet", {
       period,
       food,
       ammount,
+      hour,
       createdAt: new Date(),
     });
 
